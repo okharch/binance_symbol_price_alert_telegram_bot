@@ -22,9 +22,10 @@ type CmdHandler func(bot *tgbotapi.BotAPI, message *tgbotapi.Message, db *sql.DB
 // handleCommands is a command handler that handles all supported commands.
 func handleCommands(ctx context.Context, bot *tgbotapi.BotAPI, db *sql.DB) {
 	cmdHandlers := map[string]CmdHandler{
-		"help":   helpHandler,
-		"alert":  handleAlert,
-		"alerts": alertsHandler,
+		"help":     helpHandler,
+		"alert":    handleAlert,
+		"alerts":   alertsHandler,
+		"drop_all": dropAllHandler,
 	}
 
 	// Set up an update configuration to receive updates from the bot
