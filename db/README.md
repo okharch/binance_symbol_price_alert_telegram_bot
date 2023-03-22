@@ -76,7 +76,8 @@ chat bot should send messages about price alerts to specific users for given sym
 
 ### Unit Tests
 
-To run the unit tests, execute the `unit_tests.sql` script. This script will run several tests to verify that the database is functioning correctly.
+To run the unit tests, execute the `unit_tests.sql` script. 
+This script will run several tests to verify that the database is functioning correctly.
 
 ## License
 
