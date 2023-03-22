@@ -31,8 +31,8 @@ BEGIN
     END IF;
 
     -- Move triggered alerts to archive
-    INSERT INTO alerts_archive (user_id, symbol, price, kind, created, active_since, last_price)
-    SELECT a.user_id, a.symbol, a.price, a.kind, a.created, a.active_since, a.last_price
+    INSERT INTO alerts_archive (user_id, symbol, price, kind, created_at, active_since, last_price)
+    SELECT a.user_id, a.symbol, a.price, a.kind, a.created_at, a.active_since, a.last_price
     FROM new_alerts a;
 
     -- Delete triggered alerts from alerts table
@@ -90,7 +90,7 @@ DECLARE
 BEGIN
     SELECT price INTO current_price FROM symbol_prices WHERE symbol = a_symbol;
 
-    IF (a_kind = 0 AND current_price < a_price) OR (a_kind = 1 AND current_price > a_price) THEN
+    IF (a_kind = 1 AND current_price < a_price) OR (a_kind = 0 AND current_price > a_price) THEN
         an_active_since := NOW();
     END IF;
 
